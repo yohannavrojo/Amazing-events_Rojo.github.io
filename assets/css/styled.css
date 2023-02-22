@@ -103,7 +103,9 @@ color:#9c94c4 ;
     color: #2c146c;
 }
 /* footer */
-
+footer{
+    height: 8.1em;
+}
 .footer-height {
     height: 30px;
 }

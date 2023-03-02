@@ -77,9 +77,11 @@ color:#9c94c4 ;
 
 .table__border{
     border-bottom:1px solid #9c94c4;
-    color: #e45c9b;
+    
 }
-.table__border tr:nth-child(2n+1){
+
+.table__border .tbody-title{
+    color: #2c146c;
     background-color:#9c94c4;
 }
 .table__border tr:hover{
@@ -101,7 +103,9 @@ color:#9c94c4 ;
     color: #2c146c;
 }
 /* footer */
-
+footer{
+    height: 8.1em;
+}
 .footer-height {
     height: 30px;
 }

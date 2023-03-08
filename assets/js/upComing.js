@@ -31,7 +31,7 @@ function upComing(events) {
      
         // generar  carta 
         const div = document.getElementById('upComing')
-        div.classList.add('row','row-cols-2','sm-12','col-md-12','row-cols-md-4','g-3','pr-2','mx-2','pb-4','d-flex','justify-content-center');
+        div.classList.add('row','row-cols-2','sm-12','col-md-12','row-cols-md-4','g-3','pr-2','pb-4','d-flex','justify-content-center');
         const cardG = document.createElement('div');
         cardG.classList.add('card','card__colors','mx-2','pt-2');
         // imagenes 

@@ -80,4 +80,4 @@ function pastEvents(events) {
     }
 
 
-pastEvents()
+pastEvents();

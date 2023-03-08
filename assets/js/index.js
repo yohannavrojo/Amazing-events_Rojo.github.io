@@ -80,5 +80,5 @@ fetch('/data.json')
 }
 
 
-indexCards()
+indexCards();
 

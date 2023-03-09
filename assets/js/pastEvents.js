@@ -56,7 +56,7 @@ function pastEvents(events) {
         priceD.textContent=price+'$';
         // button
         const button = document.createElement('button');
-        button.classList.add('btn','btn-dark','h-25');
+        button.classList.add('btn','btn-color','h-25');
   
         button.innerHTML='More';
         

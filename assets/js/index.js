@@ -55,7 +55,7 @@ fetch('/data.json')
       // button
       const button = document.createElement('button');
       // button.type='button';
-      button.classList.add('btn','btn-dark','h-25')
+      button.classList.add('btn','btn-color','h-25')
       button.innerHTML='More';
       button.href=
       

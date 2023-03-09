@@ -51,7 +51,11 @@ padding: 20px;
     background-color:#9c94c4 ;
 
 }
-
+.dropdown-menu.show{
+    background-color: #7c6ca488;
+    font-size: 10px;
+    height: 5;
+}
 /* card */
 
 .card__colors{ 
@@ -60,15 +64,17 @@ border: none;
 color:white ;
 }
 .card-img-top{
-    height: 145px;
-    background: linear-gradient(#c795ac94,#b59696  );
+    height: 182px;
+   
 } 
-
+.card-body{
+    height: 205px;
+}
 .card__colors:hover{
    
     background-color:#c795ac94;
     transition: .3s all ease-in-out;
-    color: white;
+    color: rgba(255, 255, 255, 0.897);
 }
 .btn-color{
     background-color: #c795ac;
@@ -90,7 +96,7 @@ color:white ;
 }
 .form-btn:hover{
     background-color:#ffffff7e;
-    color: aliceblue;
+    color: rgb(94, 69, 100);
 }
 /* table */
 

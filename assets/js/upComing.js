@@ -1,87 +1,39 @@
-function upComing(events) {
-  
-    fetch('/data.json')
-    .then(response => response.json())
-    .then(data => {
-         // filtro
-      const currentDate = new Date(data.currentDate.split('-').join('/')); 
-      const events = data.events;
-    
-      // data.events accedo todos los eventos , filter parametro de la funcion flecha (evento),
-      //  Date un tipo de objeto 
-    
-      const filterEvents = data.events.filter((evento)=>{
-      
-      return (new Date(evento.date))<currentDate
-     })
-    
-     console.log(filterEvents)
-    filterEvents.forEach(event => {
-        const id = event._id;
-        const image = event.image;
-        const name = event.name;
-        const date = event.date;
-        const description = event.description;
-        const category = event.category;
-        const place = event.place;
-        const capacity = event.capacity;
-        const assistance = event.assistance;
-        const price = event.price;
-    
-     
-        // generar  carta 
-        const div = document.getElementById('upComing')
-        div.classList.add('row','row-cols-2','sm-12','col-md-12','row-cols-md-4','g-3','pr-2','pb-4','d-flex','justify-content-center');
-        const cardG = document.createElement('div');
-        cardG.classList.add('card','card__colors','mx-2','pt-2');
-        // imagenes 
-    
-        const picture = document.createElement('img');
-        picture.classList.add("card-img-top","card-img");
-        picture.src = image
-    
-        // contenido
-        const content = document.createElement("div");
-        content.classList.add('card-body');
-        
-        const title = document.createElement('h5');
-        title.classList.add("d-flex","justify-content-center","align-items-center")
-        title.textContent = name;
-        
-        const descrip = document.createElement('p')
-        descrip.classList.add("d-flex","justify-content-center","align-items-center")
-        descrip.textContent = description
-        
-    
-        const priceG = document.createElement('div');
-        priceG.classList.add("d-flex","row-2");
-        
-        const priceD= document.createElement('p');
-        priceD.classList.add("card-text","col");
-        priceD.textContent=price+'$';
-        // button
-        const button = document.createElement('button');
-        // button.type='button';
-        button.classList.add('btn','btn-color','h-25')
-        button.innerHTML='More';
-        
-        priceG.appendChild(priceD);
-        priceG.appendChild(button); 
-    
-        content.appendChild(title);
-        content.appendChild(descrip);
-        content.appendChild(priceG);
-       
-    
-        cardG.appendChild(picture)
-        cardG.appendChild(content)
-    
-        div.appendChild(cardG)
-    
-    
-      });
-    })
-    .catch(error => console.error(error));
-    }
 
-    upComing()
+const cardContainer = document.getElementById('upComing');
+const currentDate = new Date(data.currentDate);
+ console.log(currentDate);
+for (let i = 0; i < data.events.length; i++) {
+
+  const event = data.events[i];
+
+  const eventsDate = new Date(event.date);
+ 
+  
+  if (eventsDate > currentDate) {
+
+    const card = document.createElement('div');
+    //  card.classList.add("hola")
+    card.innerHTML = `
+    <div class="card card__colors mx-2" >
+      
+        <img src="${event.image}" class="card-img-top card-img px-3 py-3" alt="...">
+        <div class="card-body">
+          <h5 class="d-flex justify-content-center align-items-center">
+            ${event.name}
+          </h5>
+          <p class="d-flex justify-content-center align-items-center">${event.description}</p>
+          <div class="d-flex row-2">
+            <p class="card-text col">
+              ${event.price}$
+            </p>
+            <a href="#" class="btn btn-color h-25 ">More </a>
+          </div>
+        </div>
+      
+    </div>
+   `;
+    cardContainer.appendChild(card);
+
+  }
+
+}

@@ -4,15 +4,26 @@
     box-sizing: border-box;
  
 }
-/* header  */
-nav{
-    background-color: #2c146c;
+/* body */
+body{
+    background-image: url(../img/fondo.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+   
 }
+/* header  */
+
 .text-colors{
-    color:#e45c9b !important;
+    color:#482e91 !important;
+    font-weight: bold;
 }
 .text-desactive{
-    color:#7c6ca4 !important;
+    color:#e45c9b!important;
+    font-weight: 700;
+    font-size: 15px;
+    
 }
 
 .picture-logo-two{
@@ -23,13 +34,13 @@ padding: 20px;
 
 .main{
     height: 100%;
-    background-color: #2c146c;
-}
+    /* background-color: #2c146c;*/
+} 
 
 /* carousel */
 
 .text-carousel{
-    color: #c48c34;
+    color:#2c146c;
 }
 .item-height{
     height: 100px;
@@ -38,39 +49,47 @@ padding: 20px;
 .input[type="checkbox"]:checked{
     border:0.1px solid #7c6ca4;
     background-color:#9c94c4 ;
+
 }
 
 /* card */
 
 .card__colors{ 
-    background-color:#7c6ca4;
-border:1px solid #7c6ca4 ; 
-color:#9c94c4 ;
+    background-color:#7c6ca488;
+border: none; 
+color:white ;
 }
 .card-img-top{
     height: 145px;
+    background: linear-gradient(#c795ac94,#b59696  );
 } 
+
 .card__colors:hover{
    
-    background-color: #e45c9b;
+    background-color:#c795ac94;
     transition: .3s all ease-in-out;
     color: white;
+}
+.btn-color{
+    background-color: #c795ac;
+    color:white;
+}
+.btn-color:hover{
+    background-color: #7c6ca4;
 }
 
 /* form */
 .form__input{
-    border: 1px solid #9c94c4;
-    background-color: #7c6ca4;
+    border: none;
+    background-color: #01168b4b;
 }
-::placeholder{
-    color: #9c94c4;
-}
+
 .form-btn{
-    background-color: rgba(226, 21, 119, 0.86);
+    background-color:#c795ac7e;
 
 }
 .form-btn:hover{
-    background-color: #c48c34;
+    background-color:#ffffff7e;
     color: aliceblue;
 }
 /* table */
@@ -103,9 +122,16 @@ color:#9c94c4 ;
     color: #2c146c;
 }
 /* footer */
-footer{
-    height: 8.1em;
-}
+
 .footer-height {
     height: 30px;
+}
+
+.icon{
+    color:#530c2d;
+}
+
+.icon-2{
+    color:#530c2d;
+    font-weight: bold;
 }

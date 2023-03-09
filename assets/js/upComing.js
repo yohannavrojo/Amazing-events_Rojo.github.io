@@ -62,7 +62,7 @@ function upComing(events) {
         // button
         const button = document.createElement('button');
         // button.type='button';
-        button.classList.add('btn','btn-dark','h-25')
+        button.classList.add('btn','btn-color','h-25')
         button.innerHTML='More';
         
         priceG.appendChild(priceD);

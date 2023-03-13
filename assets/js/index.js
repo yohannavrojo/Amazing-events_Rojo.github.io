@@ -81,5 +81,6 @@ search.addEventListener('input', (event) => {
     }
   });
 
+  
   cards.style.flexWrap = 'wrap';
 });

@@ -68,8 +68,6 @@ checkboxes.forEach((checkbox) => {
   });
 });
 
-
-
 // filtro search 
 const search = document.getElementById('search');
 // Agregar un event listener al campo de entrada de búsqueda

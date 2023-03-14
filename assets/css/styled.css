@@ -57,6 +57,9 @@ padding: 20px;
     height: 5;
 }
 /* card */
+.hide {
+    display: none;
+  }
 
 .card__colors{ 
     background-color:#7c6ca488;

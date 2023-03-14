@@ -10,17 +10,11 @@ for (let i = 0; i < data.events.length; i++) {
       
         <img src="${event.image}" class="card-img-top card-img px-3 py-3" alt="...">
         <div class="card-body">
-          <h5 class="d-flex justify-content-center align-items-center">
-            ${event.name}
-          </h5>
+          <h5 class="d-flex justify-content-center align-items-center">${event.name}</h5>
           <p class="d-flex justify-content-center align-items-center">${event.description}</p>
           <div class="d-flex row-2">
-            <p class="card-text col">
-              ${event.price}$
-            </p>
-            <p class="category card-text col">
-            ${event.category}
-          </p>
+            <p class="card-text col">${event.price}$</p>
+            <p class="category card-text col" >${event.category}</p>
             <a href="#" class="btn btn-color h-25 ">More </a>
           </div>
         </div>
@@ -31,37 +25,33 @@ for (let i = 0; i < data.events.length; i++) {
   cardContainer.appendChild(card);
 }
 
-
-
-// Obtener todos los checkbox
-const checkboxes = document.querySelectorAll('.filtro input[type="checkbox"]');
-
-// Obtener todas las cartas
+// filtro de checkbox 
+const filterCheckboxes = document.querySelectorAll('input[name="filter"]');
 const cards = document.querySelectorAll('.card');
 
-// Agregar un EventListener a cada checkbox
-checkboxes.forEach((checkbox) => {
-  checkbox.addEventListener('change', (event) => {
-    // Obtener los valores de los checkboxes seleccionados
-    const checkedValues = Array.from(checkboxes)
-      .filter((checkbox) => checkbox.checked)
-      .map((checkbox) => checkbox.value);
-  console.log(checkedValues);
-    // Recorrer todas las cartas y mostrar/ocultar según los filtros seleccionados
-    cards.forEach((card) => {
-      const cardCategory = card.querySelector('.category').textContent;
-   console.log(card);
-      if (checkedValues.length > 0 && !checkedValues.includes(cardCategory)) {
-        card.style.display = 'none'; 
+filterCheckboxes.forEach(function(checkbox) {
+  checkbox.addEventListener('change', function() {
+    const checkedFilter = document.querySelector('input[name="filter"]:checked').value;
      
-      } else {
-        card.style.display= 'block';
+    cards.forEach(function(card) {
+      let cardClass = card.querySelector(".category").textContent;
+      console.log(cardClass, checkedFilter);
 
+      if (checkedFilter === "all") {
+        card.style.display = "flex";
+      } else {
+        if (cardClass === checkedFilter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
       }
+      
     });
   });
-
 });
+
+
 
 // filtro search 
 const search = document.getElementById('search');
@@ -69,18 +59,22 @@ const search = document.getElementById('search');
 search.addEventListener('input', (event) => {
   // Obtener el texto ingresado en el campo de entrada de búsqueda
   const searchText = event.target.value.toLowerCase().trim();
-
+console.log(searchText);
   // Recorrer todas las cartas y mostrar/ocultar según el texto ingresado
   cards.forEach((card) => {
     const cardName = card.querySelector('h5').textContent.toLowerCase();
 
     if (cardName.includes(searchText)) {
       card.style.display = 'block';
+        
     } else {
       card.style.display = 'none';
+      !card
     }
   });
 
-  
-  cards.style.flexWrap = 'wrap';
+
+
 });
+
+

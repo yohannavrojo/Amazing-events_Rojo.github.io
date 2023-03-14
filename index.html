@@ -82,45 +82,48 @@
           <div class="form-check col-12  py-md-3 px-md-4 check-bg">
             <div class="d-flex flex-row justify-content-between">
               <div class="filtro d-flex flex-row col-9 ">
+                <label>
+                  <input type="checkbox" name="filter" value="all" > All
+                </label>
                 <div class="items  p-2 mx-3">
-                  <input class="form-check-input input " type="checkbox" value="Food Fair" id="Food Fair">
+                  <input class="form-check-input input " type="checkbox" value="Food Fair" name="filter">
                   <label class="form-check-label text-desactive" for="Food Fair">
                     Category 1
                   </label>
                 </div>
                 <div class="items p-2 mx-3">
-                  <input class="form-check-input input" type="checkbox" value="Museum" id="Museum">
+                  <input class="form-check-input input" type="checkbox" value="Museum"  name="filter">
                   <label class="form-check-label text-desactive" for="Museum">
                     Category 2
                   </label>
                 </div>
                 <div class=" items p-2 mx-2">
-                  <input class="form-check-input input" type="checkbox" value="Costume Party" id="Costume Party">
+                  <input class="form-check-input input" type="checkbox" value="Costume Party" name="filter">
                   <label class="form-check-label text-desactive" for="Costume Party">
                     Category 3
                   </label>
                 </div>
                 <div class="items p-2 mx-2">
-                  <input class="form-check-input input" type="checkbox" value="Music Concert" id="Music Concert">
+                  <input class="form-check-input input" type="checkbox" value="Music Concert" name="filter">
                   <label class=" form-check-label text-desactive" for="Music Concert">
                     Category 4
                   </label>
                 </div>
                 <div class="items p-2 mx-2">
-                  <input class="form-check-input input" type="checkbox" value="Race" id="Race">
+                  <input class="form-check-input input" type="checkbox" value="Race"  name="filter">
                   <label class="form-check-label text-desactive" for="Race">
                     Category 5
                   </label>
                 </div>
                 <div class="items p-2 mx-2">
-                  <input class="form-check-input input" type="checkbox" value="Book Exchange" id="Book Exchange">
+                  <input class="form-check-input input" type="checkbox" value="Book Exchange"  name="filter">
                   <label class="form-check-label text-desactive" for="Book Exchange">
                     Category 6
                   </label>
                 </div>
 
                 <div class="items p-2 mx-2">
-                  <input class="form-check-input input" type="checkbox" value="Cinema" id="Cinema">
+                  <input class="form-check-input input" type="checkbox" value="Cinema" id="Cinema" name="filter">
                   <label class="form-check-label text-desactive" for="Cinema">
                     Category 7
                   </label>
@@ -128,14 +131,13 @@
                 
               </div>
 
-
             </div>
           </div>
         </div>
         <form class="d-flex  justify-content-center align-items-center" role="search">
           <input id="search" class="col-5 mx-2 rounded-3  px-1  py-2 form__input" type="search" placeholder="Search"
             aria-label="Search">
-          <button id="button" class="btn text-light form-btn" type="submit">Search</button>
+          <button onclick="filter()" id="button" class="btn text-light form-btn" type="submit">Search</button>
         </form>
       </div>
     </div>
@@ -146,11 +148,7 @@
 
     <div id="card" class="row row-cols-2 sm-12 col-md-12 row-cols-md-4 g-3 pr-2 pb-4 d-flex justify-content-center"></div>
 
-    <!-- <h1>Valores seleccionados </h1>
-    <div id="lista" class="list-group" >
-
-    </div> -->
-
+  
   </main>
 
   <!-- footer -->

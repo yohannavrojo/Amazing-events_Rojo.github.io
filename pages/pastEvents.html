@@ -75,8 +75,8 @@
 
     <!-- check -->
 
-    <div class="d-flex justify-content-center">
-      <div class="btn-group dropleft px-5 py-3 ">
+    <div class="d-flex justify-content-center py-5">
+      <div class="btn-group dropup px-5 py-3 ">
         <button type="button" class="btn btn-secondary dropdown-toggle form-btn" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown">
           Category
@@ -84,39 +84,57 @@
         <div class="dropdown-menu">
           <div class="form-check col-12  py-md-3 px-md-4 check-bg">
             <div class="d-flex flex-row justify-content-between">
-              <div class="d-flex flex-row col-9 px-4">
-                <div class="p-2 mx-3">
-                  <input class="form-check-input input " type="checkbox" value="category-one" id="category-one">
-                  <label class="form-check-label text-desactive" for="category-one">
+              <div class="filtro d-flex flex-row col-9 ">
+                <div class="items  p-2 mx-3">
+                <label class=" form-check-label text-desactive">
+                  <input  class="form-check-input input " type="checkbox" name="filter" value="all" > All
+                </label>
+              </div>
+                <div class="items  p-2 mx-3">
+                  <input class="form-check-input input " type="checkbox" value="Food Fair" name="filter">
+                  <label class="form-check-label text-desactive" for="Food Fair">
                     Category 1
                   </label>
                 </div>
-                <div class="p-2 mx-3">
-                  <input class="form-check-input input" type="checkbox" value="category-two" id="category-two" checked>
-                  <label class="form-check-label text-desactive" for="category-two">
+                <div class="items p-2 mx-3">
+                  <input class="form-check-input input" type="checkbox" value="Museum"  name="filter">
+                  <label class="form-check-label text-desactive" for="Museum">
                     Category 2
                   </label>
                 </div>
-                <div class="p-2 mx-2">
-                  <input class="form-check-input input" type="checkbox" value="category-three" id="category-three">
-                  <label class="form-check-label text-desactive" for="category-three">
+                <div class=" items p-2 mx-2">
+                  <input class="form-check-input input" type="checkbox" value="Costume Party" name="filter">
+                  <label class="form-check-label text-desactive" for="Costume Party">
                     Category 3
                   </label>
                 </div>
-                <div class="p-2 mx-2">
-                  <input class="form-check-input input" type="checkbox" value="category-four" id="category-four">
-                  <label class="form-check-label text-desactive" for="category-four">
+                <div class="items p-2 mx-2">
+                  <input class="form-check-input input" type="checkbox" value="Music Concert" name="filter">
+                  <label class=" form-check-label text-desactive" for="Music Concert">
                     Category 4
                   </label>
                 </div>
-                <div class="p-2 mx-2">
-                  <input class="form-check-input input" type="checkbox" value="category-five" id="category-five">
-                  <label class="form-check-label text-desactive" for="category-five">
+                <div class="items p-2 mx-2">
+                  <input class="form-check-input input" type="checkbox" value="Race"  name="filter">
+                  <label class="form-check-label text-desactive" for="Race">
                     Category 5
                   </label>
                 </div>
-              </div>
+                <div class="items p-2 mx-2">
+                  <input class="form-check-input input" type="checkbox" value="Book Exchange"  name="filter">
+                  <label class="form-check-label text-desactive" for="Book Exchange">
+                    Category 6
+                  </label>
+                </div>
 
+                <div class="items p-2 mx-2">
+                  <input class="form-check-input input" type="checkbox" value="Cinema" id="Cinema" name="filter">
+                  <label class="form-check-label text-desactive" for="Cinema">
+                    Category 7
+                  </label>
+                </div>
+                
+              </div>
 
             </div>
           </div>
@@ -124,10 +142,11 @@
         <form class="d-flex  justify-content-center align-items-center" role="search">
           <input id="search" class="col-5 mx-2 rounded-3  px-1  py-2 form__input" type="search" placeholder="Search"
             aria-label="Search">
-          <button id="button" class="btn text-light form-btn" type="submit">Search</button>
+          <button onclick="filter()" id="button" class="btn text-light form-btn" type="submit">Search</button>
         </form>
       </div>
     </div>
+
     
     <!-- card  -->
     <div id="pastEvents"class="row row-cols-2 sm-12 col-md-12 row-cols-md-4 g-3 pr-2 pb-4 d-flex justify-content-center" >

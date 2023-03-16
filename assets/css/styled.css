@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Merriweather:ital@1&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -18,9 +20,10 @@ body{
 .text-colors{
     color:#482e91 !important;
     font-weight: bold;
+    font-size: 15px;
 }
 .text-desactive{
-    color:#e45c9b!important;
+    color:#2a2a2a!important;
     font-weight: 700;
     font-size: 15px;
     
@@ -34,7 +37,7 @@ padding: 20px;
 
 .main{
     height: 100%;
-    /* background-color: #2c146c;*/
+   
 } 
 
 /* carousel */
@@ -57,9 +60,7 @@ padding: 20px;
     height: 5;
 }
 /* card */
-.hide {
-    display: none;
-  }
+
 
 .card__colors{ 
     background-color:#7c6ca488;
@@ -71,7 +72,10 @@ color:white ;
    
 } 
 .card-body{
-    height: 205px;
+   font-weight: bold;
+    color: #080315;
+    font-family: 'EB Garamond', serif;
+
 }
 .card__colors:hover{
    
@@ -118,17 +122,26 @@ color:white ;
 /* details */
 
 .main-cont{
-    height:580px;
-    background-color: #2c146c;
+    height: 524px;
+  
 
 }
 .main-cont i{
     font-size: 60px;
-    color:#e45c9b ;
+    color: #0e0032;
 }
 .description{
-    background-color: #e45c9b;
+    background-color: #e45c9b00;
     color: #2c146c;
+    border: none;
+
+}
+.img{
+        width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 3px 1px 20px 6px black;
 }
 /* footer */
 

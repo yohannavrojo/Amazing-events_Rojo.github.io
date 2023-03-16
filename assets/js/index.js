@@ -1,11 +1,12 @@
 
 const cardContainer = document.getElementById('card');
 
+let card = '';
 
 for (let i = 0; i < data.events.length; i++) {
   const event = data.events[i];
-  const card = document.createElement('div');
-  card.innerHTML = `
+
+  card+= `
     <div class="card card__colors mx-2" >
       
         <img src="${event.image}" class="card-img-top card-img px-3 py-3" alt="...">
@@ -15,15 +16,17 @@ for (let i = 0; i < data.events.length; i++) {
           <div class="d-flex row-2">
             <p class="card-text col">${event.price}$</p>
             <p class="category card-text col" >${event.category}</p>
-            <a href="#" class="btn btn-color h-25 ">More </a>
+            <p class="category card-text col" >${event._id}</p>
+            <a href="./pages/details-upComing.html?id=${event._id}" class="btn btn-color h-25 ">More </a>
           </div>
         </div>
       
     </div>
   `;
 
-  cardContainer.appendChild(card);
 }
+
+  cardContainer.innerHTML = card;
 
 // filtro de checkbox 
 const filterCheckboxes = document.querySelectorAll('input[name="filter"]');
@@ -33,6 +36,7 @@ filterCheckboxes.forEach(function(checkbox) {
   checkbox.addEventListener('change', function() {
     const checkedFilter = document.querySelector('input[name="filter"]:checked').value;
      
+    // checked value
     cards.forEach(function(card) {
       let cardClass = card.querySelector(".category").textContent;
       console.log(cardClass, checkedFilter);
@@ -69,7 +73,7 @@ console.log(searchText);
         
     } else {
       card.style.display = 'none';
-      !card
+      
     }
   });
 

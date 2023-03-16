@@ -1,7 +1,9 @@
 
 const cardContainer = document.getElementById('upComing');
 const currentDate = new Date(data.currentDate);
- console.log(currentDate);
+
+
+let card = '';
 for (let i = 0; i < data.events.length; i++) {
 
   const event = data.events[i];
@@ -11,9 +13,8 @@ for (let i = 0; i < data.events.length; i++) {
   
   if (eventsDate > currentDate) {
 
-    const card = document.createElement('div');
-    //  card.classList.add("hola")
-    card.innerHTML = `
+   
+    card  += `
     <div class="card card__colors mx-2" >
       
         <img src="${event.image}" class="card-img-top card-img px-3 py-3" alt="...">
@@ -26,47 +27,50 @@ for (let i = 0; i < data.events.length; i++) {
             <p class="card-text col">
               ${event.price}$
             </p>
-            <a href="#" class="btn btn-color h-25 ">More </a>
+            <p class="category card-text col" >${event.category}</p>
+            <a href="../pages/details-upComing.html?id=${event._id}" class="btn btn-color h-25 ">More </a>
           </div>
         </div>
       
     </div>
    `;
-    cardContainer.appendChild(card);
+   
 
   }
 
 }
+cardContainer.innerHTML = card;
 
-// filtro checkbox 
-// Obtener todos los checkbox
-const checkboxes = document.querySelectorAll('.filtro input[type="checkbox"]');
 
-// Obtener todas las cartas
+
+// filtro de checkbox 
+const filterCheckboxes = document.querySelectorAll('input[name="filter"]');
 const cards = document.querySelectorAll('.card');
+console.log(cards);
 
-// Agregar un EventListener a cada checkbox
-checkboxes.forEach((checkbox) => {
-  checkbox.addEventListener('change', (event) => {
-    // Obtener los valores de los checkboxes seleccionados
-    const checkedValues = Array.from(checkboxes)
-      .filter((checkbox) => checkbox.checked)
-      .map((checkbox) => checkbox.value);
-  console.log(checkedValues);
-    // Recorrer todas las cartas y mostrar/ocultar según los filtros seleccionados
-    cards.forEach((card) => {
-      const cardCategory = card.querySelector('.category').textContent;
-   console.log(card);
-      if (checkedValues.length > 0 && !checkedValues.includes(cardCategory)) {
-        card.style.display = 'none'; 
+filterCheckboxes.forEach(function(checkbox) {
+  checkbox.addEventListener('change', function() {
+    const checkedFilter = document.querySelector('input[name="filter"]:checked').value;
      
-      } else {
-        card.style.display= 'block';
+    cards.forEach(function(card) {
+      let cardClass = card.querySelector(".category").textContent;
+      console.log(cardClass, checkedFilter);
 
+      if (checkedFilter === "all") {
+        card.style.display = "flex";
+      } else {
+        if (cardClass === checkedFilter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
       }
+      
     });
   });
 });
+
+
 
 // filtro search 
 const search = document.getElementById('search');
@@ -74,15 +78,20 @@ const search = document.getElementById('search');
 search.addEventListener('input', (event) => {
   // Obtener el texto ingresado en el campo de entrada de búsqueda
   const searchText = event.target.value.toLowerCase().trim();
-
+console.log(searchText);
   // Recorrer todas las cartas y mostrar/ocultar según el texto ingresado
   cards.forEach((card) => {
     const cardName = card.querySelector('h5').textContent.toLowerCase();
 
     if (cardName.includes(searchText)) {
       card.style.display = 'block';
+        
     } else {
       card.style.display = 'none';
+      !card
     }
   });
+
+
+
 });

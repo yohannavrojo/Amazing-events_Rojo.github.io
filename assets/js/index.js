@@ -16,7 +16,6 @@ for (let i = 0; i < data.events.length; i++) {
           <div class="d-flex row-2">
             <p class="card-text col">${event.price}$</p>
             <p class="category card-text col" >${event.category}</p>
-            <p class="category card-text col" >${event._id}</p>
             <a href="./pages/details-upComing.html?id=${event._id}" class="btn btn-color h-25 ">More </a>
           </div>
         </div>

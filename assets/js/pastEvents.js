@@ -1,9 +1,13 @@
+let card = '';
+
+fetch('../amazing.json')
+  .then(response => response.json())
+  .then(data => {
 
 const cardContainer = document.getElementById('pastEvents');
 const currentDate = new Date(data.currentDate);
+console.log(currentDate);
 
-
-let card = '';
 for (let i = 0; i < data.events.length; i++) {
 
   const event = data.events[i];
@@ -36,7 +40,7 @@ for (let i = 0; i < data.events.length; i++) {
 
 }
 cardContainer.innerHTML = card;
-
+})
 
 // filtro de checkbox 
 const filterCheckboxes = document.querySelectorAll('input[name="filter"]');

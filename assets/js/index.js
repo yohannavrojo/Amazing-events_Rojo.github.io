@@ -1,7 +1,10 @@
 
 const cardContainer = document.getElementById('card');
-
 let card = '';
+fetch('amazing.json')
+  .then(response => response.json())
+  .then(data => {
+
 
 for (let i = 0; i < data.events.length; i++) {
   const event = data.events[i];
@@ -26,6 +29,8 @@ for (let i = 0; i < data.events.length; i++) {
 }
 
   cardContainer.innerHTML = card;
+})
+
 
 // filtro de checkbox 
 const filterCheckboxes = document.querySelectorAll('input[name="filter"]');

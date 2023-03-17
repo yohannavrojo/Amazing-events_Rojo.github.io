@@ -1,6 +1,6 @@
 let card = '';
 
-fetch('../amazing.json')
+fetch('https://mindhub-xj03.onrender.com/api/amazing') //../amazing.json
   .then(response => response.json())
   .then(data => {
 

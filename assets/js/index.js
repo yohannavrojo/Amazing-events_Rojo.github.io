@@ -1,7 +1,7 @@
 
 const cardContainer = document.getElementById('card');
 let card = '';
-fetch('amazing.json')
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
   .then(response => response.json())
   .then(data => {
 

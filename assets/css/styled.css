@@ -87,6 +87,7 @@ color:white ;
 .btn-color{
     background-color: #c795ac;
     color:rgb(10, 5, 59);
+    font-weight: 600;
 }
 .btn-color:hover{
     background-color: #7c6ca4;

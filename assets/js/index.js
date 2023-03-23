@@ -29,7 +29,7 @@ for (let i = 0; i < data.events.length; i++) {
 }
 
   cardContainer.innerHTML = card;
-})
+
 
 
 // filtro de checkbox 
@@ -84,5 +84,5 @@ console.log(searchText);
 
 
 });
-
+});
 

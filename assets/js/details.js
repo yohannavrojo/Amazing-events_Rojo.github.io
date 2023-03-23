@@ -1,9 +1,14 @@
 
+
 const querySearch = document.location.search
 console.log(querySearch);
 const id = new URLSearchParams(querySearch).get("id")
 console.log(id);
 
+
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+  .then(response => response.json())
+  .then(data => {
 const eventos = data.events.find(event => event._id == id)
 console.log(eventos);
 
@@ -39,3 +44,4 @@ cardRender.innerHTML =`
     </div>
 </div>` 
 
+});

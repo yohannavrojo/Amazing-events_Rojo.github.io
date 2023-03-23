@@ -67,7 +67,7 @@ const search = document.getElementById('search');
 search.addEventListener('input', (event) => {
   // Obtener el texto ingresado en el campo de entrada de búsqueda
   const searchText = event.target.value.toLowerCase().trim();
-console.log(searchText);
+
   // Recorrer todas las cartas y mostrar/ocultar según el texto ingresado
   cards.forEach((card) => {
     const cardName = card.querySelector('h5').textContent.toLowerCase();

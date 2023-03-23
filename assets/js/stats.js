@@ -11,14 +11,16 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing') //../amazing.json
         })
         // obtener upcoming events
         const upComingEvents = data.events.filter((evento) => {
-            return (new Date(evento.date)) < currentDate;
+            return (new Date(evento.date)) > currentDate;
         })
 
+        // console.log(upComingEvents);
         // category 
         
 
         const categoriesPast = [...new Set(pastEvents.map((evento) => evento.category))]
         const categoriesupComing =[... new Set(upComingEvents.map((evento) => evento.category))]
+        // console.log(categoriesupComing);
 
         // porcentaje past events 
         pastEvents.forEach(events => {
@@ -88,10 +90,10 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing') //../amazing.json
         const upTable = categoriesupComing.map(category => {
 
             const eventsCategoryUp = upComingEvents.filter(event => event.category === category);
-            const totalReveneuUp = eventsCategoryUp.reduce((total, event) => total + event.price * event.estimate, 0)
+           const totalReveneuUp = eventsCategoryUp.reduce((total, event) => total + event.price * event.estimate, 0 )
             const averageAttendanceUp = (eventsCategoryUp.reduce((total, event) => total + event.estimate / event.capacity, 0) / eventsCategoryUp.length) * 100;
 
-            console.log(totalReveneuUp);
+          
             return {
                 category,
                 totalReveneuUp,
@@ -100,7 +102,7 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing') //../amazing.json
 
 
         });
-        console.log(upTable);
+       
 
         const tableContentUp = upTable.map(({ category, totalReveneuUp, averageAttendanceUp }) => `
          <tr >
@@ -126,7 +128,7 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing') //../amazing.json
 
 
         });
-        console.log(pastTable);
+    
 
         const tableContent = pastTable.map(({ category, totalReveneu, averageAttendance }) => `
          <tr>

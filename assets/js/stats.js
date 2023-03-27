@@ -15,11 +15,10 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing') //../amazing.json
         })
 
         // category 
-        
+        // const categoryNameMax= data.events.find(evento => evento.capacity === categoryMax)
         const categories = data.events.map(evento => evento.capacity);
         const categoryMax = Math.max(...categories)
-           
-         console.log(categoryMax);
+        //    console.log(categoryNameMax.name);
 
         const categoriesPast = [...new Set(pastEvents.map((evento) => evento.category))]
         const categoriesupComing =[... new Set(upComingEvents.map((evento) => evento.category))]
@@ -158,7 +157,7 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing') //../amazing.json
         <tr>
             <td>${eventoMax.evento.name} ${eventoMax.porcentaje}</td>
             <td>${eventoMin.evento.name} ${eventoMin.porcentaje}</td>
-            <td>${categories.name}${categoryMax}</td>
+            <td>${categoryMax}</td>
         </tr>
 
         <tr>

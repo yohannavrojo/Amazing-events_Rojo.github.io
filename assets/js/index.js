@@ -52,6 +52,7 @@ filterCheckboxes.forEach(function(checkbox) {
           card.style.display = "block";
         } else {
           card.style.display = "none";
+        
         }
       }
       
@@ -76,7 +77,13 @@ search.addEventListener('input', (event) => {
       card.style.display = 'block';
         
     } else {
-      card.style.display = 'none';
+      // card.style.display = 'none';
+      Swal.fire({
+        title: 'No se ha encontrado',
+        text: 'Gracias , Vuelva a intentar ',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
       
     }
   });

@@ -90,8 +90,12 @@ console.log(searchText);
       card.style.display = 'block';
         
     } else {
-      card.style.display = 'none';
-      !card
+      Swal.fire({
+        title: 'No se ha encontrado',
+        text: 'Gracias , Vuelva a intentar ',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
     }
   });
 

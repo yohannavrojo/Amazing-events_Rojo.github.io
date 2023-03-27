@@ -87,7 +87,12 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing') //../amazing.json
           card.style.display = 'block';
 
         } else {
-          card.style.display = 'none';
+          Swal.fire({
+            title: 'No se ha encontrado',
+            text: 'Gracias , Vuelva a intentar ',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          });
 
         }
       });

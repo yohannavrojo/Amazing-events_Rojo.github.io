@@ -14,18 +14,21 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing') //../amazing.json
             return (new Date(evento.date)) > currentDate;
         })
 
-        // console.log(upComingEvents);
         // category 
         
+        const categories = data.events.map(evento => evento.capacity);
+        const categoryMax = Math.max(...categories)
+           
+         console.log(categoryMax);
 
         const categoriesPast = [...new Set(pastEvents.map((evento) => evento.category))]
         const categoriesupComing =[... new Set(upComingEvents.map((evento) => evento.category))]
-        // console.log(categoriesupComing);
-
+ 
         // porcentaje past events 
         pastEvents.forEach(events => {
 
             let procentaje = Math.max((events.assistance / events.capacity) * 100)
+            
         });
 
         // porcentaje up coming 
@@ -139,10 +142,6 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing') //../amazing.json
         `).join('');
 
 
-
-
-        // document.getElementById("pastEvents").innerHTML = pastTable.join("");
-
         table.innerHTML = `
     <table class="table table__border mr-3 text-dark">
     <tbody >
@@ -159,7 +158,7 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing') //../amazing.json
         <tr>
             <td>${eventoMax.evento.name} ${eventoMax.porcentaje}</td>
             <td>${eventoMin.evento.name} ${eventoMin.porcentaje}</td>
-            <td></td>
+            <td>${categories.name}${categoryMax}</td>
         </tr>
 
         <tr>

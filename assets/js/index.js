@@ -1,84 +1,95 @@
 
-
-function indexCards(events) { 
-
-fetch('/data.json')
+const cardContainer = document.getElementById('card');
+let card = '';
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
   .then(response => response.json())
   .then(data => {
-    const currentDate = data.currentDate;
-    const events = data.events;
 
-    events.forEach(event => {
-      const id = event._id;
-      const image = event.image;
-      const name = event.name;
-      const date = event.date;
-      const description = event.description;
-      const category = event.category;
-      const place = event.place;
-      const capacity = event.capacity;
-      const assistance = event.assistance;
-      const price = event.price;
 
-      // do something with the event data...
+for (let i = 0; i < data.events.length; i++) {
+  const event = data.events[i];
 
-      // generar  carta 
-      const div = document.getElementById('card')
-      div.classList.add('row','row-cols-2','sm-12','col-md-12','row-cols-md-4','g-3','pr-2','pb-4','d-flex','justify-content-center');
-      const cardG = document.createElement('div');
-      cardG.classList.add('card','card__colors','mx-2','pt-2');
-      // imagenes 
-
-      const picture = document.createElement('img');
-      picture.classList.add("card-img-top","card-img");
-      picture.src = image
-
-      // contenido
-      const content = document.createElement('div');
-      content.classList.add('card-body');
+  card+= `
+    <div class="card card__colors mx-2" >
       
-      const title = document.createElement('h5');
-      title.classList.add("d-flex","justify-content-center","align-items-center")
-      title.textContent = name;
+        <img src="${event.image}" class="card-img-top card-img px-3 py-3" alt="...">
+        <div class="card-body">
+          <h5 class="d-flex justify-content-center align-items-center">${event.name}</h5>
+          <p class="d-flex justify-content-center align-items-center">${event.description}</p>
+          <div class="d-flex row-2">
+            <p class="card-text col">${event.price}$</p>
+            <p class="category card-text col" >${event.category}</p>
+            <a href="./pages/details-upComing.html?id=${event._id}" class="btn btn-color h-25 ">More </a>
+          </div>
+        </div>
       
-      const descrip = document.createElement('p')
-      descrip.classList.add("d-flex","justify-content-center","align-items-center")
-      descrip.textContent = description
-      
-
-      const priceG = document.createElement('div');
-      priceG.classList.add("d-flex","row-2");
-      
-      const priceD= document.createElement('p');
-      priceD.classList.add("card-text","col");
-      priceD.textContent=price+'$';
-      // button
-      const button = document.createElement('button');
-      // button.type='button';
-      button.classList.add('btn','btn-color','h-25')
-      button.innerHTML='More';
-      button.href=
-      
-      priceG.appendChild(priceD);
-      priceG.appendChild(button); 
-
-      content.appendChild(title);
-      content.appendChild(descrip);
-      content.appendChild(priceG);
-     
-
-      cardG.appendChild(picture)
-      cardG.appendChild(content)
-
-      div.appendChild(cardG)
-
-
-    });
-  })
-  .catch(error => console.error(error));
+    </div>
+  `;
 
 }
 
+  cardContainer.innerHTML = card;
 
-indexCards();
+
+
+// filtro de checkbox 
+const filterCheckboxes = document.querySelectorAll('input[name="filter"]');
+const cards = document.querySelectorAll('.card');
+
+filterCheckboxes.forEach(function(checkbox) {
+  checkbox.addEventListener('change', function() {
+    const checkedFilter = document.querySelector('input[name="filter"]:checked').value;
+     
+    // checked value
+    cards.forEach(function(card) {
+      let cardClass = card.querySelector(".category").textContent;
+      console.log(cardClass, checkedFilter);
+
+      if (checkedFilter === "all") {
+        card.style.display = "flex";
+      } else {
+        if (cardClass === checkedFilter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        
+        }
+      }
+      
+    });
+  });
+});
+
+
+
+// filtro search 
+const search = document.getElementById('search');
+// Agregar un event listener al campo de entrada de búsqueda
+search.addEventListener('input', (event) => {
+  // Obtener el texto ingresado en el campo de entrada de búsqueda
+  const searchText = event.target.value.toLowerCase().trim();
+
+  // Recorrer todas las cartas y mostrar/ocultar según el texto ingresado
+  cards.forEach((card) => {
+    const cardName = card.querySelector('h5').textContent.toLowerCase();
+
+    if (cardName.includes(searchText)) {
+      card.style.display = 'block';
+        
+    } else {
+      // card.style.display = 'none';
+      Swal.fire({
+        title: 'No se ha encontrado',
+        text: 'Gracias , Vuelva a intentar ',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
+      
+    }
+  });
+
+
+
+});
+});
 
